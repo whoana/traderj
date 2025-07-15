@@ -6,11 +6,24 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ConfigManager",
+            "request": "launch",
+            "mainClass": "com.smthe.money.managers.ConfigManager",
+            "projectName": "traderj",
+            "vmArgs": [
+                "-Dtraderj.home=/Users/whoana/DEV/workspaces/myproject/traderj/home",
+                "-Dlogback.configurationFile=/Users/whoana/DEV/workspaces/myproject/traderj/logback/logback.xml",
+                "-Dtraderj.log.dir=/Users/whoana/DEV/workspaces/myproject/traderj/home/log"
+            ]
+        },
+        {
+            "type": "java",
             "name": "BotManager",
             "request": "launch",
             "mainClass": "com.smthe.money.managers.BotManager",
             "projectName": "traderj",
             "vmArgs": [
+                "-Dtraderj.home=/Users/whoana/DEV/workspaces/myproject/traderj/home",
                 "-Dlogback.configurationFile=/Users/whoana/DEV/workspaces/myproject/traderj/logback/logback.xml",
                 "-Dtraderj.log.dir=/Users/whoana/DEV/workspaces/myproject/traderj/home/log"
             ]

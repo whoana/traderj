@@ -1,0 +1,8 @@
+{
+    "maven.terminal.favorites": [
+        {
+            "command": "clean package -Dmaven.test.skip=true",
+            "debug": false
+        }
+    ]
+}
