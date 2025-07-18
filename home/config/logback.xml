@@ -1,0 +1,48 @@
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{dd-MM HH:mm:ss.SSS} [%thread][%F:%L] %-5level %logger{20}.%M - %msg%n</Pattern>
+		</encoder>
+		<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator>
+                <expression>return logger.contains("KafkaConsumer") &amp;&amp;
+					(message.contains("Failed to close coordinator") || message.contains("Failed to close fetcher"));
+		 		</expression>
+            </evaluator>
+            <OnMatch>DENY</OnMatch>
+            <OnMismatch>NEUTRAL</OnMismatch>
+		</filter>
+	</appender>
+
+	<appender name="FILE-AP" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${traderj.log.dir}//traderj.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>%d{dd-MM HH:mm:ss.SSS} [%thread][%F:%L] %-5level %logger{20}.%M - %msg%n</Pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${traderj.log.dir}//traderj_%d{dd-MM-yyyy}_%i.log</fileNamePattern>
+			<maxFileSize>20MB</maxFileSize>
+			<maxHistory>5</maxHistory>
+			<totalSizeCap>100MB</totalSizeCap>
+		</rollingPolicy>
+
+		<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator>
+				<expression>return logger.contains("KafkaConsumer") &amp;&amp;
+					(message.contains("Failed to close coordinator") || message.contains("Failed to close fetcher"));
+		 		</expression>
+            </evaluator>
+            <OnMatch>DENY</OnMatch>
+            <OnMismatch>NEUTRAL</OnMismatch>
+		</filter>					
+
+	</appender>
+
+
+	<root level="debug">
+		<appender-ref ref="FILE-AP" />
+		<appender-ref ref="STDOUT" />
+	</root>
+	
+</configuration>

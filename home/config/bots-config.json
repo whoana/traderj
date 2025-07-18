@@ -1,0 +1,56 @@
+{
+    "description": "This JSON file contains the configuration for various trading bots, including their parameters and strategies.",
+    "version": "1.0",
+    "lastUpdated": "2023-10-01",
+    "author": "TraderJ Team",
+    "bots": [
+        // {
+        //     "name": "FirstBot",
+        //     "enabled": true,
+        //     "description": "RSI_MACD_BB_Strategy Bot 5m",
+        //     "className": "com.smthe.money.bot.FirstBot",
+        //     "params": {
+        //         "rsiBarCount": 14,
+        //         "macdShortBarCount": 12,
+        //         "macdLongBarCount": 26,
+        //         "signalBarCount": 9,
+        //         "smaBarCount": 20,
+        //         "stdDevBarCount": 20,
+        //         "volumeBarCount": 20,
+        //         "avgVolumeBarCount": 20,
+        //         "bbLowerMultiplier": 1.05,
+        //         "bbUpperMultiplier": 0.95,
+        //         "barInterval": "5m",
+        //         "market": "BTC_KRW",
+        //         "exchange": "Bithumb",
+        //         "botDelay": 60000 // 1 minute in milliseconds
+        //     }
+        // },
+        {
+            "name": "SecondBot",
+            "enabled": true,
+            "description": "RSI_MACD_BB_Strategy Bot 1m",
+            "className": "com.smthe.money.bot.FirstBot",
+            "params": {
+                "rsiBarCount": 14,
+                "rsiBottomValue": 40,
+                "rsiTopValue": 60,
+                "macdShortBarCount": 12,
+                "macdLongBarCount": 26,
+                "signalBarCount": 9,
+                "smaBarCount": 20,
+                "stdDevBarCount": 20,
+                "volumeBarCount": 20,
+                "avgVolumeBarCount": 20,
+                "avgVolumeMultiplier": 0.8,
+                "bbLowerMultiplier": 1.001,
+                "bbUpperMultiplier": 0.999,
+                "barInterval": "1m",
+                "market": "BTC_KRW",
+                "exchange": "Bithumb",
+                "botDelay": 2000 // 10 seconds in milliseconds
+            }
+        }
+
+    ]           
+}
